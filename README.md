@@ -2,7 +2,7 @@
 
 PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic Segmentation *](https://arxiv.org/abs/1903.09746)
 
-This implementation has been tested on the Cityscapes datasets. Currently, a pre-trained version of the model trained in CamVid and Cityscapes is available [here](https://github.com/superlxt/RPnet-Pytorch/tree/master/save).
+This implementation has been tested on the Cityscapes and CamVid (TBD) datasets. Currently, a pre-trained version of the model trained in CamVid and Cityscapes is available [here](https://github.com/superlxt/RPnet-Pytorch/tree/master/save).
 
 
 |                                Dataset                               | Classes <sup>1</sup> | Input resolution | Batch size |    Epochs  |    Mean IoU (%)   |
@@ -25,12 +25,12 @@ This implementation has been tested on the Cityscapes datasets. Currently, a pre
 ### Examples: Training
 
 ```
-python main.py -m train --save-dir save/folder/ --name model_name --dataset name --dataset-dir path/root_directory/
+sh train.sh
 ```
 
 ### Examples: Testing
 
 ```
-python main.py -m test --save-dir save/folder/ --name model_name --dataset name --dataset-dir path/root_directory/
+python main.py -m test --step 1
 ```
 
