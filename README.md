@@ -7,7 +7,7 @@ PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic 
 
 ### Segmentation Result
 <h1 align="center">
-![image_2](pictures/2.png)
+  <img src="pictures/2.png"><br/>
 </h1>
 
 ### Citing RPNet
