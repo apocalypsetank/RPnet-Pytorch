@@ -27,7 +27,7 @@ def get_arguments():
         "--batch-size",
         "-b",
         type=int,
-        default=10,
+        default=3,
         help="The batch size. Default: 10")
     parser.add_argument(
         "--epochs",
@@ -55,35 +55,35 @@ def get_arguments():
         "--weight-decay",
         "-wd",
         type=float,
-        default=2e-4,
+        default=1e-4,
         help="L2 regularization factor. Default: 2e-4")
 
     # Dataset
     parser.add_argument(
         "--dataset",
         choices=['camvid', 'cityscapes'],
-        default='camvid',
-        help="Dataset to use. Default: camvid")
+        default='cityscapes',
+        help="Dataset to use. Default: cityscapes")
     parser.add_argument(
         "--dataset-dir",
         type=str,
-        default="data/CamVid",
+        default="data/Cityscapes",
         help="Path to the root directory of the selected dataset. "
-        "Default: data/CamVid")
+        "Default: data/Cityscapes")
     parser.add_argument(
         "--height",
         type=int,
-        default=360,
-        help="The image height. Default: 360")
+        default=512,
+        help="The image height. Default: 1024")
     parser.add_argument(
         "--width",
         type=int,
-        default=480,
-        help="The image width. Default: 480")
+        default=1024,
+        help="The image height. Default: 2048")
     parser.add_argument(
         "--weighing",
         choices=['enet', 'mfb', 'none'],
-        default='ENet',
+        default='mfb',
         help="The class weighing technique to apply to the dataset. "
         "Default: enet")
     parser.add_argument(
@@ -91,6 +91,13 @@ def get_arguments():
         dest='ignore_unlabeled',
         action='store_false',
         help="The unlabeled class is not ignored.")
+
+    # Step
+    parser.add_argument(
+        "--step",
+        type=int,
+        default='1',
+        help="Step to choose. Default: 1")
 
     # Settings
     parser.add_argument(
@@ -108,16 +115,17 @@ def get_arguments():
         help=("Displays batch images when loading the dataset and making "
               "predictions."))
     parser.add_argument(
-        "--device",
-        default='cuda',
-        help="Device on which the network will be trained. Default: cuda")
+        "--no-cuda",
+        dest='cuda',
+        default='store_false',
+        help="CPU only.")
 
     # Storage settings
     parser.add_argument(
         "--name",
         type=str,
-        default='ENet',
-        help="Name given to the model when saving. Default: ENet")
+        default='RPNet',
+        help="Name given to the model when saving. Default: RPNet")
     parser.add_argument(
         "--save-dir",
         type=str,

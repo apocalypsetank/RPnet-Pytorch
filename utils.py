@@ -1,9 +1,11 @@
 import torch
+import torch as F
 import torchvision
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
+import random
+import cv2
 
 def batch_transform(batch, transform):
     """Applies a transform to a batch of samples.
@@ -15,12 +17,12 @@ def batch_transform(batch, transform):
     """
 
     # Convert the single channel label to RGB in tensor form
-    # 1. torch.unbind removes the 0-dimension of "labels" and returns a tuple of
+    # 1. F.unbind removes the 0-dimension of "labels" and returns a tuple of
     # all slices along that dimension
     # 2. the transform is applied to each slice
-    transf_slices = [transform(tensor) for tensor in torch.unbind(batch)]
+    transf_slices = [transform(tensor) for tensor in F.unbind(batch)]
 
-    return torch.stack(transf_slices)
+    return F.stack(transf_slices)
 
 
 def imshow_batch(images, labels):
@@ -118,7 +120,38 @@ def load_checkpoint(model, optimizer, folder_dir, filename):
     checkpoint = torch.load(model_path)
     model.load_state_dict(checkpoint['state_dict'])
     optimizer.load_state_dict(checkpoint['optimizer'])
-    epoch = checkpoint['epoch']
-    miou = checkpoint['miou']
+    epoch = 0
+    miou = 0
 
     return model, optimizer, epoch, miou
+
+
+
+def dataaug(inputs, labels):
+    """use flip and warpAffine
+    """
+    for i in range(inputs.shape[0]):
+        inputs1 = inputs[i, :, :, :]
+        labels1 = labels[i, :, :]
+        inputs1 = inputs1.numpy()
+        labels1 = labels1.numpy()
+        inputs1 = inputs1.transpose((1, 2, 0))
+
+        x = random.randint(-2, 2)
+        y = random.randint(-2, 2)
+        H = np.float32([[1,0,x],[0,1,y]])
+        inputs1 = cv2.warpAffine(inputs1,H,(inputs1.shape[1],inputs1.shape[0]))
+        labels1 = cv2.warpAffine(labels1.astype(np.float32),H,(inputs1.shape[1],inputs1.shape[0])).astype(np.uint8) 
+
+
+        if random.random() < 0.5:
+            inputs1 = cv2.flip(inputs1, 1) # horizontal flip
+            labels1 = cv2.flip(labels1, 1) # horizontal flip
+            
+        inputs1 = inputs1.transpose((2, 0, 1))
+        inputs1 = torch.from_numpy(inputs1)
+        labels1 = torch.from_numpy(labels1)
+        #print(inputs.shape)
+        inputs[i, : , : ,:]=inputs1
+        labels[i, : ,:]=labels1
+    return inputs, labels

@@ -28,8 +28,8 @@ class Cityscapes(data.Dataset):
     val_lbl_folder = "gtFine_trainvaltest/gtFine/val"
 
     # Test dataset root folders
-    test_folder = "leftImg8bit_trainvaltest/leftImg8bit/test"
-    test_lbl_folder = "gtFine_trainvaltest/gtFine/test"
+    test_folder = "leftImg8bit_trainvaltest/leftImg8bit/val"
+    test_lbl_folder = "gtFine_trainvaltest/gtFine/val"
 
     # Filters to find the images
     img_extension = '.png'
@@ -137,16 +137,15 @@ class Cityscapes(data.Dataset):
                                "Supported modes are: train, val and test")
 
         img, label = self.loader(data_path, label_path)
-
         # Remap class labels
         label = utils.remap(label, self.full_classes, self.new_classes)
 
         if self.transform is not None:
             img = self.transform(img)
 
+
         if self.label_transform is not None:
             label = self.label_transform(label)
-
         return img, label
 
     def __len__(self):

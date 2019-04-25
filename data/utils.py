@@ -16,7 +16,7 @@ def get_files(folder, name_filter=None, extension_filter=None):
 
     """
     if not os.path.isdir(folder):
-        raise RuntimeError("\"{0}\" is not a folder.".format(folder))
+       raise RuntimeError("\"{0}\" is not a folder.".format(folder))
 
     # Filename filter: if not specified don't filter (condition always true);
     # otherwise, use a lambda expression to filter out files that do not
