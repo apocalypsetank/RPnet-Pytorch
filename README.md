@@ -2,6 +2,30 @@
 
 PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic Segmentation *](https://arxiv.org/abs/1903.09746)
 
+
+### Citing RPNet
+
+Please cite RPNet in your publications if it helps your research:
+
+    @article{DBLP:journals/corr/abs-1903-09746,
+      author    = {Xiaoyu Chen and
+                   Xiaotian Lou and
+                   Lianfa Bai and
+                   Jing Han},
+      title     = {Residual Pyramid Learning for Single-Shot Semantic Segmentation},
+      journal   = {CoRR},
+      volume    = {abs/1903.09746},
+      year      = {2019},
+      url       = {http://arxiv.org/abs/1903.09746},
+      archivePrefix = {arXiv},
+      eprint    = {1903.09746},
+      timestamp = {Mon, 01 Apr 2019 14:07:37 +0200},
+      biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1903-09746},
+      bibsource = {dblp computer science bibliography, https://dblp.org}
+    }
+
+
+
 This implementation has been tested on the Cityscapes and CamVid (TBD) datasets. Currently, a pre-trained version of the model trained in CamVid and Cityscapes is available [here](https://github.com/superlxt/RPnet-Pytorch/tree/master/save).
 
 
