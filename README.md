@@ -1,8 +1,8 @@
 # PyTorch-ENet
 
-PyTorch implementation of [*ENet: A Deep Neural Network Architecture for Real-Time Semantic Segmentation*](https://arxiv.org/abs/1606.02147), ported from the lua-torch implementation [ENet-training](https://github.com/e-lab/ENet-training) created by the authors.
+PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic Segmentation *](https://arxiv.org/abs/1903.09746)
 
-This implementation has been tested on the CamVid and Cityscapes datasets. Currently, a pre-trained version of the model trained in CamVid and Cityscapes is available [here](https://github.com/davidtvs/PyTorch-ENet/tree/master/save).
+This implementation has been tested on the Cityscapes datasets. Currently, a pre-trained version of the model trained in CamVid and Cityscapes is available [here](https://github.com/superlxt/RPnet-Pytorch/tree/master/save).
 
 
 |                                Dataset                               | Classes <sup>1</sup> | Input resolution | Batch size | Epochs | Mean IoU (%) | GPU memory (GiB) | Training time (hours)<sup>2</sup> |
