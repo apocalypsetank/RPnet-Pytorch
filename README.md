@@ -2,6 +2,8 @@
 
 PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic Segmentation *](https://arxiv.org/abs/1903.09746)
 
+### Network
+![image_1](pictures/1.png)
 
 ### Citing RPNet
 
