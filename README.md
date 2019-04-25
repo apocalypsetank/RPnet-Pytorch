@@ -45,7 +45,20 @@ This implementation has been tested on the Cityscapes and CamVid (TBD) datasets.
 * Just for reference since changes in implementation, datasets, and hardware can lead to very different results. Reference hardware: Nvidia GTX 1080ti and an Intel Core i7-7920x 2.9GHz. 
 
 
-We 
+The results on Cityscapes dataset
+|      Method      |   Input Size   |   Mean IoU   |   Mean iIoU   |    fps   |    FLOPs   |
+|:----------------:|:--------------:|:------------:|:-------------:|:--------:|:----------:|
+|       ENet       |    1024*512    |     58.3     |      34.4     |    77    |    4.03B   |
+|      ERFNet      |    1024*512    |     68.0     |      40.4     |    59    |    25.6B   |
+|      ESPNet      |    1024*512    |     60.3     |      31.8     |    139   |    3.19B   |
+|      BiSeNet     |    1036*768    |     68.4     |       -       |    69    |    26.4B   |
+|       ICNet      |    2048*1024   |     69.5     |       -       |    30    |      -     |
+|DeepLab(Mobilenet)|    2048*1024   |  70.71(val)  |       -       |    16    |    21.3B   |
+|       LRR        |    2048*1024   |     69.7     |      48.0     |    2     |      -     |
+|     REfinNet     |    2048*1024   |     73.6     |      47.2     |    -     |     263B   |
+| **RPNet(ENet)**  |    1024*512    |     63.37    |      39.0     |    88    |    4.28B   |
+| **RPNet(ERFNet)**|    1024*512    |     67.9     |      44.9     |    123   |    20.7B   |
+
 
 
 ## Installation
