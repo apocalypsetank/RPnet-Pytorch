@@ -6,7 +6,7 @@ PyTorch implementation of [* Residual Pyramid Learning for Single-Shot Semantic 
 ![image_1](pictures/1.png)
 
 ### Segmentation Result
-![image_2](pictures/2.png)
+   ![image_2](pictures/2.png)
 
 ### Citing RPNet
 
@@ -41,6 +41,9 @@ This implementation has been tested on the Cityscapes and CamVid (TBD) datasets.
 
 * When referring to the number of classes, the void/unlabeled class is always excluded.<br/>
 * Just for reference since changes in implementation, datasets, and hardware can lead to very different results. Reference hardware: Nvidia GTX 1080ti and an Intel Core i7-7920x 2.9GHz. 
+
+
+We 
 
 
 ## Installation
