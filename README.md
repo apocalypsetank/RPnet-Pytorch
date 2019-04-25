@@ -46,6 +46,8 @@ This implementation has been tested on the Cityscapes and CamVid (TBD) datasets.
 
 
 The results on Cityscapes dataset
+
+
 |      Method      |   Input Size   |   Mean IoU   |   Mean iIoU   |    fps   |    FLOPs   |
 |:----------------:|:--------------:|:------------:|:-------------:|:--------:|:----------:|
 |       ENet       |    1024*512    |     58.3     |      34.4     |    77    |    4.03B   |
